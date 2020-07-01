@@ -10,7 +10,7 @@ object Assignment {
       appName("Assignment").getOrCreate()
     import spark.implicits._
 
-    val sessionDF = spark.read.json("/Users/313248/IdeaProjects/spark-test/src/main/resources/assignment")
+    val sessionDF = spark.read.json("/src/main/resources/assignment")
     //sessionDF.printSchema()  // check the data elements
     sessionDF.select("calc_userid", "eventlaenc", "timestamp").where(
       "calc_userid = 913"
