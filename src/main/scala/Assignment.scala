@@ -37,7 +37,7 @@ object Assignment {
     // Question 3: Consider "eventlaenc" =126 or 107 as defining actions. Calculate first and second defining action, ordered based on time, for each "calc_userid" and also find the count of those actions.
 
 
-    //val sessionDF = spark.read.json("/Users/313248/IdeaProjects/spark-test/src/main/resources/assignment")
+    //val sessionDF = spark.read.json("/src/main/resources/assignment")
     val eventDF = sessionDF.filter(col("eventlaenc") === 126 or col("eventlaenc") === 107).select("calc_userid", "eventlaenc", "timestamp")
 
     val rankSpec = Window.partitionBy("calc_userid", "eventlaenc").orderBy("timestamp")
